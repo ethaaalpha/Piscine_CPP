@@ -1,8 +1,9 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
+#include <iostream>
+
 int	main(void)
 {
-	Contact((std::string)"je suis la string", (std::string)"je suis la string", (std::string)"je suis la string", (std::string)"je suis la string", (std::string)"je suis la string");
-
+	PhoneBook pbook;
 }
