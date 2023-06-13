@@ -8,17 +8,20 @@ NAME 		= ex01
 OBJ_DIR 	= obj/
 
 SRCS		= \
-megaphone.cpp\
+PhoneBook.cpp\
+Contact.cpp\
+main.cpp
 
 OBJ_DIR 	= .obj
 
 OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
-megaphone.hpp
+PhoneBook.hpp
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
+	./$(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
