@@ -21,3 +21,8 @@ void	PhoneBook::addContact(Contact new_contact)
 		this->index = 1;
 	this->contacts[this->index] = new_contact;
 }
+
+void	PhoneBook::showContacts()
+{
+	
+}

@@ -13,6 +13,7 @@ public:
 	~PhoneBook();
 	void	addContact(Contact new_contact);
 	void	showContacts(void);
-	void	searchContact(int index);
+	// void	searchContact(int index);
+	// void	runLoop(void);
 };
 #endif
