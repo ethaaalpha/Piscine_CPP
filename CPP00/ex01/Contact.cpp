@@ -3,12 +3,10 @@
 
 Contact::Contact(void)
 {
-	std::cout << "An empty contact have been initialized !" << std::endl;
 }
 
 Contact::~Contact()
 {
-	std::cout << "Contact " << this->first_name << " have been destroyed !" << std::endl;
 	return ;
 }
 

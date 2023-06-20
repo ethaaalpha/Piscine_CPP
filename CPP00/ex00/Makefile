@@ -3,12 +3,12 @@ CC 			= c++
 
 CFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
-NAME 		= ex00
+NAME 		= megaphone
 #---------------------------------------------------#
 OBJ_DIR 	= obj/
 
 SRCS		= \
-megaphone.cpp\
+megaphone.cpp
 
 OBJ_DIR 	= .obj
 
