@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <stdlib.h>
+#include "header.h"
 #include "PhoneBook.hpp"
 
 void PhoneBook::resetLines(void)
@@ -28,33 +29,6 @@ PhoneBook::~PhoneBook()
 {
 }
 
-int ft_trim(std::string item)
-{
-	size_t start = item.find_first_not_of(" ");
-	size_t end = item.find_last_not_of(" ");
-	if (start == std::string::npos)
-		return (1);
-	else
-	{
-		item = item.substr(end - start, start);
-		return (0);
-	}
-}
-
-std::string getEntry(std::string entry_name)
-{
-	std::string input = "\0";
-
-	std::cout << "Please, enter the " << entry_name << " !" << std::endl;
-	getline(std::cin, input);
-	while (ft_trim(input))
-	{
-		std::cout << "Error, the " << entry_name << " can't be empty (or filled of space) !" << std::endl;
-		getline(std::cin, input);
-	}
-	return (input);
-}
-
 void	PhoneBook::addContact(void)
 {
 	if (this->registered < 7)
@@ -68,13 +42,6 @@ void	PhoneBook::addContact(void)
 	getEntry("darkest secret"));
 	std::cout << "Contact added !" << std::endl;
 	this->index += 1;
-}
-
-std::string getLimitedInfo(std::string item)
-{
-	if (item.size() > 10)
-		item.replace(10, 1, ".");
-	return (item);
 }
 
 void	PhoneBook::showContactLimited(int contact_index)
@@ -134,11 +101,13 @@ void	PhoneBook::showAllContacts(void)
 		value = std::atoi(entry.c_str());
 		if (entry.find_first_not_of("0123456789") != std::string::npos)
 		{
+			addLine(1);
 			std::cout << "Error, the index might only be composed of numbers (0123456789) !" << std::endl;
 			continue;
 		}
 		if (value < 0 || value > this->registered)
 		{
+			addLine(1);
 			std::cout << "Error, this index isn't registered in the phonebook !" << std::endl;
 			continue;
 		}
@@ -163,5 +132,7 @@ void	PhoneBook::loop(void)
 			showAllContacts();
 		else if (input == "EXIT")
 			break ;
+		else
+			resetLines();
 	}
 }
