@@ -18,20 +18,11 @@ int ft_trim(std::string item)
 std::string getLimitedInfo(std::string item)
 {
 	if (item.size() > 10)
-		item.replace(10, 1, ".");
+	{
+		item.replace(9, 1, ".");
+		item.resize(10);
+	}
 	return (item);
 }
 
-std::string getEntry(std::string entry_name)
-{
-	std::string input = "\0";
 
-	std::cout << "Please, enter the " << entry_name << " !" << std::endl;
-	getline(std::cin, input);
-	while (ft_trim(input))
-	{
-		std::cout << "Error, the " << entry_name << " can't be empty (or filled of space) !" << std::endl;
-		getline(std::cin, input);
-	}
-	return (input);
-}

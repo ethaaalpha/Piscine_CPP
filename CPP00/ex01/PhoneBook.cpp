@@ -4,23 +4,8 @@
 #include "header.h"
 #include "PhoneBook.hpp"
 
-void PhoneBook::resetLines(void)
-{
-	while (this->lineprinted > 0)
-	{
-		std::cout<< "\x1b[1A" << "\x1b[2K";
-		this->lineprinted--;
-	}
-}
-
-void PhoneBook::addLine(int n)
-{
-	this->lineprinted += n;
-}
-
 PhoneBook::PhoneBook()
 {
-	this->lineprinted = 0;
 	this->index = 0;
 	this->registered = 0;
 }
@@ -31,17 +16,31 @@ PhoneBook::~PhoneBook()
 
 void	PhoneBook::addContact(void)
 {
-	if (this->registered < 7)
+	if (this->registered < 8)
 		this->registered +=1;
 	if (this->index > 7)
-		this->index = 1;
+		this->index = 0;
 	this->contacts[this->index].defineValues(getEntry("firstname"), \
 	getEntry("lastname"), \
 	getEntry("nickname"), \
 	getEntry("phonenumber"), \
 	getEntry("darkest secret"));
-	std::cout << "Contact added !" << std::endl;
 	this->index += 1;
+	std::cout << "Contact successfully added !" << std::endl;
+}
+
+std::string PhoneBook::getEntry(std::string entry_name)
+{
+	std::string input = "\0";
+
+	std::cout << "Please, enter the " << entry_name << " !" << std::endl;
+	getline(std::cin, input);
+	while (ft_trim(input))
+	{
+		std::cout << "Error, the " << entry_name << " can't be empty (or filled of space) !" << std::endl;
+		getline(std::cin, input);
+	}
+	return (input);
 }
 
 void	PhoneBook::showContactLimited(int contact_index)
@@ -101,13 +100,11 @@ void	PhoneBook::showAllContacts(void)
 		value = std::atoi(entry.c_str());
 		if (entry.find_first_not_of("0123456789") != std::string::npos)
 		{
-			addLine(1);
 			std::cout << "Error, the index might only be composed of numbers (0123456789) !" << std::endl;
 			continue;
 		}
-		if (value < 0 || value > this->registered)
+		if (value < 0 || value > this->registered - 1)
 		{
-			addLine(1);
 			std::cout << "Error, this index isn't registered in the phonebook !" << std::endl;
 			continue;
 		}
@@ -133,6 +130,6 @@ void	PhoneBook::loop(void)
 		else if (input == "EXIT")
 			break ;
 		else
-			resetLines();
+			std::cout << "Forbidden command, please use ADD, SEARCH, EXIT" << std::endl;
 	}
 }

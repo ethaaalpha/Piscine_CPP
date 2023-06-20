@@ -9,16 +9,14 @@ private:
 	Contact	contacts[8];
 	int		index;
 	int		registered;
-	int		lineprinted;
 public:
 	PhoneBook();
 	~PhoneBook();
-	void	addContact(void);
-	void	showContactLimited(int contact_index);
-	void	showContactFull(int contact_index);
-	void	showAllContacts(void);
-	void	resetLines(void);
-	void	addLine(int n = 1);
-	void	loop(void);
+	std::string getEntry(std::string entry_name);
+	void		addContact(void);
+	void		showContactLimited(int contact_index);
+	void		showContactFull(int contact_index);
+	void		showAllContacts(void);
+	void		loop(void);
 };
 #endif
