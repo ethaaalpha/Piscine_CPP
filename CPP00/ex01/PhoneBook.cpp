@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
 #include <stdlib.h>
-#include "header.h"
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook()
@@ -10,9 +9,7 @@ PhoneBook::PhoneBook()
 	this->registered = 0;
 }
 
-PhoneBook::~PhoneBook()
-{
-}
+PhoneBook::~PhoneBook(){}
 
 void	PhoneBook::addContact(void)
 {
@@ -37,6 +34,8 @@ std::string PhoneBook::getEntry(std::string entry_name)
 	getline(std::cin, input);
 	while (ft_trim(input))
 	{
+		if (std::cin.eof() == 1)
+			std::exit(1);
 		std::cout << "Error, the " << entry_name << " can't be empty (or filled of space) !" << std::endl;
 		getline(std::cin, input);
 	}
@@ -113,6 +112,29 @@ void	PhoneBook::showAllContacts(void)
 	showContactFull(value);
 }
 
+int PhoneBook::ft_trim(std::string item)
+{
+	size_t start = item.find_first_not_of(" ");
+	size_t end = item.find_last_not_of(" ");
+	if (start == std::string::npos)
+		return (1);
+	else
+	{
+		item = item.substr(end - start, start);
+		return (0);
+	}
+}
+
+std::string PhoneBook::getLimitedInfo(std::string item)
+{
+	if (item.size() > 10)
+	{
+		item.replace(9, 1, ".");
+		item.resize(10);
+	}
+	return (item);
+}
+
 void	PhoneBook::loop(void)
 {
 	std::string input;
@@ -129,6 +151,8 @@ void	PhoneBook::loop(void)
 			showAllContacts();
 		else if (input == "EXIT")
 			break ;
+		else if (std::cin.eof() == 1)
+			break;
 		else
 			std::cout << "Forbidden command, please use ADD, SEARCH, EXIT" << std::endl;
 	}

@@ -21,7 +21,6 @@ Account.hpp
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
-	./$(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)

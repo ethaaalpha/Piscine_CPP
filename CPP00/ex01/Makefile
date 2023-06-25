@@ -10,7 +10,6 @@ OBJ_DIR 	= obj/
 SRCS		= \
 PhoneBook.cpp\
 Contact.cpp\
-utils.cpp\
 main.cpp
 
 OBJ_DIR 	= .obj
@@ -19,11 +18,9 @@ OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
 PhoneBook.hpp\
-header.h
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
-	./$(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)

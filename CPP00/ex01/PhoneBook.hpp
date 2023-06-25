@@ -18,5 +18,9 @@ public:
 	void		showContactFull(int contact_index);
 	void		showAllContacts(void);
 	void		loop(void);
+
+
+	static std::string	getLimitedInfo(std::string item);
+	static int			ft_trim(std::string item);
 };
 #endif
