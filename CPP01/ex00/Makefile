@@ -5,14 +5,20 @@ CFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 NAME 		= ex00
 #---------------------------------------------------#
+OBJ_DIR 	= obj/
+
 SRCS		= \
-megaphone.cpp
+Zombie.cpp\
+newZombie.cpp\
+randomChump.cpp\
+main.cpp
 
 OBJ_DIR 	= .obj
 
 OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
+Zombie.hpp
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)

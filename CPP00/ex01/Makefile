@@ -14,7 +14,7 @@ main.cpp
 
 OBJ_DIR 	= .obj
 
-OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)
+OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
 PhoneBook.hpp\
@@ -25,7 +25,7 @@ all:
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJ_DIR)/%.o : %.c $(HEADERS)
+$(OBJ_DIR)/%.o : %.cpp $(HEADERS)
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
