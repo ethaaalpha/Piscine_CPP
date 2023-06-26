@@ -2,17 +2,17 @@
 
 Zombie::Zombie()
 {
-
-}
-
-Zombie::Zombie(std::string value) : name(value)
-{
-	std::cout << "Zombie constructor : " << value << std::endl;
+	std::cout << "Zombie constructor !" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "Zombie destructor : " << this->name << std::endl;
+	std::cout << "Zombie destructor !" << std::endl;
+}
+
+void	Zombie::setName(std::string name)
+{
+	this->name = name;
 }
 
 void	Zombie::announce(void)

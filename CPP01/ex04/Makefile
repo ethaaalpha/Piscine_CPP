@@ -3,13 +3,11 @@ CC 			= c++
 
 CFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
-NAME 		= ex01
+NAME 		= ex03
 #---------------------------------------------------#
 OBJ_DIR 	= obj/
 
 SRCS		= \
-Zombie.cpp\
-zombieHorde.cpp\
 main.cpp
 
 OBJ_DIR 	= .obj
@@ -17,7 +15,6 @@ OBJ_DIR 	= .obj
 OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
-Zombie.hpp
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
