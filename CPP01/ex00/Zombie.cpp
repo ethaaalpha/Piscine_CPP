@@ -12,9 +12,6 @@ Zombie::~Zombie()
 
 void	Zombie::announce(void)
 {
-	if (this->name == "Foo")
-		std::cout << this->name << ": ";
-	else
-		std::cout << "<" << this->name << ">" << ": ";
+	std::cout << this->name << ": ";
 	std::cout << "BraiiiiiiinnnzzzZ..." << std::endl;
 }
