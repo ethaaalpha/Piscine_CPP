@@ -1,29 +1,26 @@
 #include <iostream>
+#include <cstring>
 #include <fstream>
 #include <sstream>
 
-std::ifstream getInStream(std::string file)
+int check_ifs(std::ifstream* ifs)
 {
-	std::ifstream ifs(file);
-
-	if (ifs.fail() == true)
+	if (ifs->fail() == true)
 	{
-		std::cout << "Error : " << std::strerror(errno) << std::endl;
-		std::exit(1);
+		std::cout << "Input file error : " << std::strerror(errno) << std::endl;
+		return (1);
 	}
-	return (ifs);
+	return (0);
 }
 
-std::ofstream getOutStream(std::string file)
+int check_ofs(std::ofstream* ofs)
 {
-	std::ofstream ofs(file);
-
-	if (ofs.fail() == true)
+	if (ofs->fail() == true)
 	{
-		std::cout << "Error : " << std::strerror(errno) << std::endl;
-		std::exit(1);
+		std::cout << "Ouput file error : " << std::strerror(errno) << std::endl;
+		return (1);
 	}
-	return (ofs);
+	return (0);
 }
 
 std::string replace_occurences(std::string content, std::string s1, std::string s2)
@@ -41,11 +38,11 @@ std::string replace_occurences(std::string content, std::string s1, std::string 
 	return (content);
 }
 
-std::string	get_file_content(std::ifstream& ifs)
+std::string	get_file_content(std::ifstream* ifs)
 {
 	std::stringstream bufferstream;
 
-	bufferstream << ifs.rdbuf();
+	bufferstream << ifs->rdbuf();
 	return (bufferstream.str());
 }
 
@@ -53,9 +50,10 @@ int main(int argc, char const *argv[])
 {
 	if (argc != 4)
 		return (std::cout << "Error ! Syntax : /ex04 <filename> <s1> <s2>" << std::endl, 1);
-	std::ifstream ifs = getInStream(argv[1]);
-	std::ofstream ofs = getOutStream(std::string(argv[1]) + ".replace");
-
-	ofs << replace_occurences(get_file_content(ifs), argv[2], argv[3]);
+	std::ifstream ifs(argv[1]);
+	std::ofstream ofs((std::string(argv[1]) + ".replace").c_str());
+	check_ifs(&ifs);
+	check_ofs(&ofs);
+	ofs << replace_occurences(get_file_content(&ifs), argv[2], argv[3]);
 	return 0;
 }
