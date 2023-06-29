@@ -2,11 +2,14 @@
 
 int main(void)
 {
-	/* code */
 	Harl h = Harl();
-	h.complain("DEBUG");
-	h.complain("INFO");
-	h.complain("WARNING");
-	h.complain("ERROR");
+
+	for (int i = 0; i < 3; i++)
+	{
+		h.complain("DEBUG");
+		h.complain("INFO");
+		h.complain("WARNING");
+		h.complain("ERROR");
+	}
 	return 0;
 }

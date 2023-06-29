@@ -31,23 +31,12 @@ void	Harl::error()
 
 void	Harl::complain(std::string level)
 {
-	std::string levels = "DEBUG,INFO,WARNING,ERROR";
-	switch (levels.find(level))
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void (Harl::*functions[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	
+	for (int i = 0; i < 4; i++)
 	{
-	case 0:
-		this->debug();
-		break;
-	case 6:
-		this->info();
-		break;
-	case 11:
-		this->warning();
-		break;
-	case 19:
-		this->error();
-		break;
-	default:
-		std::cout << levels.find(level);
-		break;
+		if (levels[i] == level)
+			(this->*(functions[i]))();
 	}
 }
