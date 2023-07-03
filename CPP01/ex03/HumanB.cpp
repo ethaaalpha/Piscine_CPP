@@ -1,21 +1,21 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : name(name)
+HumanB::HumanB(std::string name) : _name(name)
 {
-	std::cout << "HumanB " << this->name << " constructor !" << std::endl;
+	std::cout << "HumanB " << this->_name << " constructor !" << std::endl;
 }
 
 HumanB::~HumanB()
 {
-	std::cout << "HumanB " << this->name << " destructor !" << std::endl;
+	std::cout << "HumanB " << this->_name << " destructor !" << std::endl;
 }
 
-void	HumanB::attack()
+void	HumanB::attack() const
 {
-	std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+	std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon &weapon)
 {
-	this->weapon = &weapon;
+	this->_weapon = &weapon;
 }

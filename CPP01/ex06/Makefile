@@ -3,7 +3,7 @@ CC 			= c++
 
 CFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
-NAME 		= ex05
+NAME 		= harlFilter
 #---------------------------------------------------#
 OBJ_DIR 	= obj/
 

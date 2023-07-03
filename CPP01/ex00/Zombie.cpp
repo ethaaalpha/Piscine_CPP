@@ -1,17 +1,17 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string value) : name(value)
+Zombie::Zombie(std::string value) : _name(value)
 {
 	std::cout << "Zombie constructor : " << value << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "Zombie destructor : " << this->name << std::endl;
+	std::cout << "Zombie destructor : " << this->_name << std::endl;
 }
 
-void	Zombie::announce(void)
+void	Zombie::announce(void) const
 {
-	std::cout << this->name << ": ";
+	std::cout << this->_name << ": ";
 	std::cout << "BraiiiiiiinnnzzzZ..." << std::endl;
 }
