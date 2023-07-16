@@ -29,7 +29,8 @@ const Fixed& Point::getY(void) const
 
 Point& Point::operator=(const Point &parent)
 {
-	getX().setRawBits(parent.getX().setRawBits());
+	this->~Point();
+	new (this) Point(parent.getX().toFloat(), parent.getY().toFloat());
 	return (*this);
 }
 
