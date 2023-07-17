@@ -6,16 +6,17 @@
 class Point
 {
 private:
+	Point();
+	Point& operator=(const Point &parent);
 	const Fixed _x;
 	const Fixed _y;
+
 public:
-	Point();
 	Point(const float x, const float y);
 	Point(const Point &parent);
 	~Point();
-	Point& operator=(const Point &parent);
-	bool   operator==(const Point &right) const;
 
+	bool   operator==(const Point &right) const;
 	const Fixed& getX(void) const;
 	const Fixed& getY(void) const;
 };

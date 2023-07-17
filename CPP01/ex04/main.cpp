@@ -28,12 +28,14 @@ std::string replace_occurences(std::string content, std::string s1, std::string 
 	size_t	i = 0;
 	size_t	pos = content.find(s1, i);;
 
+	if (s1.length() == 0)
+		return (content);
 	while (pos != std::string::npos)
 	{
+		i = pos + s2.length();
 		content.erase(pos, s1.length());
 		content.insert(pos, s2);
 		pos = content.find(s1, i);
-		i += s2.length();
 	}
 	return (content);
 }
@@ -52,8 +54,8 @@ int main(int argc, char const *argv[])
 		return (std::cout << "Error ! Syntax : /ex04 <filename> <s1> <s2>" << std::endl, 1);
 	std::ifstream ifs(argv[1]);
 	std::ofstream ofs((std::string(argv[1]) + ".replace").c_str());
-	check_ifs(&ifs);
-	check_ofs(&ofs);
+	if (check_ifs(&ifs) || check_ofs(&ofs))
+		return (1);
 	ofs << replace_occurences(get_file_content(&ifs), argv[2], argv[3]);
 	return 0;
 }
