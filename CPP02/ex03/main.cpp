@@ -34,8 +34,17 @@ int main( void ) {
 
 	// triangle n'2 - invalide -> arrete
 
-	Point cible3 = Point(3, 6);
-	std::cout << bsp(e, f, d, cible3) << " <- résultat" << std::endl;
+	Point cible4 = Point(5.3, 5.8);
+	std::cout << bsp(e, f, d, cible4) << " <- résultat" << std::endl;
 
+	// triangle n'2 - invalide -> droite
+
+	Point cible5 = Point(8, 6);
+	std::cout << bsp(e, f, d, cible4) << " <- résultat" << std::endl;
+
+	// triangle n'2 - invalide -> gauche
+
+	Point cible6 = Point(1, 8);
+	std::cout << bsp(e, f, d, cible4) << " <- résultat" << std::endl;
 	return (0);
 }
