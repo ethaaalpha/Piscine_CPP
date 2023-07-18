@@ -9,13 +9,14 @@ OBJ_DIR 	= obj/
 
 SRCS		= \
 main.cpp\
+ClapTrap.cpp\
 
 OBJ_DIR 	= .obj
 
 OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
-Fixed.hpp
+ClapTrap.hpp
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
