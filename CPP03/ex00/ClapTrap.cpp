@@ -3,12 +3,12 @@
 /* Canonical Form -- START */
 ClapTrap::ClapTrap()
 {
-	std::cout << "ClapTrap constructor !" << std::endl;
+	std::cout << "ClapTrap default constructor !" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &parent)
 {
-	std::cout << "ClapTrap constructor !" << std::endl;
+	std::cout << "ClapTrap parent constructor !" << std::endl;
 	_name = parent._name;
 	_hit_points = parent._hit_points;
 	_energy_points = parent._energy_points;
@@ -32,7 +32,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "ClapTrap constructor !" << std::endl;
+	std::cout << "ClapTrap named constructor !" << std::endl;
 	_name = name;
 	_hit_points = 10;
 	_energy_points = 10;

@@ -7,6 +7,8 @@ class ScavTrap : public ClapTrap
 private:
 	/* data */
 public:
-	ScavTrap(/* args */);
+	ScavTrap();
+	ScavTrap(const ScavTrap &parent);
+	ScavTrap operator=(const ScavTrap &parent);
 	~ScavTrap();
 };

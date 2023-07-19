@@ -21,4 +21,14 @@ public:
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+
+	void defineEnergyPoints(unsigned int value);
+	void defineLifePoints(unsigned int value);
+	void defineAttackDamage(unsigned int value);
+	void defineName(std::string new_name);
+
+	unsigned int getLifePoints(void) const;
+	unsigned int getAttackDamage(void) const;
+	unsigned int getEnergyPoints(void) const;	
+	std::string getName(void) const;
 };

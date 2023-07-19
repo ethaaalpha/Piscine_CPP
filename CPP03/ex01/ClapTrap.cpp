@@ -3,12 +3,12 @@
 /* Canonical Form -- START */
 ClapTrap::ClapTrap()
 {
-	std::cout << "ClapTrap constructor !" << std::endl;
+	std::cout << "ClapTrap default constructor !" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &parent)
 {
-	std::cout << "ClapTrap constructor !" << std::endl;
+	std::cout << "ClapTrap parent constructor !" << std::endl;
 	_name = parent._name;
 	_hit_points = parent._hit_points;
 	_energy_points = parent._energy_points;
@@ -32,7 +32,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "ClapTrap constructor !" << std::endl;
+	std::cout << "ClapTrap named constructor !" << std::endl;
 	_name = name;
 	_hit_points = 10;
 	_energy_points = 10;
@@ -73,4 +73,44 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << _name << " is healed of " << amount << " !" << std::endl;
 		std::cout << "From now it got " << _hit_points << " hit points !" << std::endl;
 	}
+}
+
+void ClapTrap::defineName(std::string new_name)
+{
+	_name = new_name;
+}
+
+void ClapTrap::defineEnergyPoints(unsigned int value)
+{
+	_energy_points = value;
+}
+
+void ClapTrap::defineLifePoints(unsigned int value)
+{
+	_hit_points = value;
+}
+
+void ClapTrap::defineAttackDamage(unsigned int value)
+{
+	_attack_damage = value;
+}
+
+std::string ClapTrap::getName(void) const
+{
+	return (_name);
+}
+
+unsigned int ClapTrap::getLifePoints(void) const
+{
+	return (_hit_points);
+}
+
+unsigned int ClapTrap::getAttackDamage(void) const
+{
+	return (_attack_damage);
+}
+
+unsigned int ClapTrap::getEnergyPoints(void) const
+{
+	return (_energy_points);
 }
