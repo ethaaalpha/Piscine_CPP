@@ -2,6 +2,7 @@
 
 ScavTrap::ScavTrap()
 {
+	_name = "coucou";
 	std::cout << "ScavTrap constructor !" << std::endl;
 }
 
