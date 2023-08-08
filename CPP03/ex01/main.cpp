@@ -25,4 +25,5 @@ int main(void)
 	scav_b.beRepaired(10);
 	scav_a.takeDamage(100);
 	std::cout << std::endl;
+
 }

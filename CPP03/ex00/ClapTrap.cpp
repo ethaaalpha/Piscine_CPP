@@ -9,10 +9,7 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap(const ClapTrap &parent)
 {
 	std::cout << "ClapTrap parent constructor !" << std::endl;
-	_name = parent._name;
-	_hit_points = parent._hit_points;
-	_energy_points = parent._energy_points;
-	_attack_damage = parent._attack_damage;
+	*this = parent;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &parent)

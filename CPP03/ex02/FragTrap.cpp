@@ -34,7 +34,18 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	defineAttackDamage(30);
 }
 
+void FragTrap::attack(const std::string& target)
+{
+	if (getEnergyPoints() == 0 || getHitPoints() <= 0)
+		std::cout << "FragTrap " << getName() << " is a little bit tired now, it can't attack !" << std::endl;
+	else
+	{
+		defineEnergyPoints(getEnergyPoints() - 1);
+		std::cout << "FragTrap " << getName() << " attack " << target << ", causing " << getAttackDamage() << " points of damage !" << std::endl;
+	}
+}
+
 void FragTrap::highFivesGuys(void) const
 {
-	std::cout << "FragTrap " << getName() << " asked for a high fives !" << std::endl;
+	std::cout << "FragTrap " << getName() << " ask for a high fives !" << std::endl;
 }
