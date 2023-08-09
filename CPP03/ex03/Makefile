@@ -1,9 +1,9 @@
 #---------------------------------------------------#
 CC 			= c++
 
-CFLAGS 		= -Wall -Wextra -Werror -std=c++98
+CFLAGS 		= -Wall -Wextra -Werror -std=c++98 -Wshadow
 
-NAME 		= ex02
+NAME 		= ex03
 #---------------------------------------------------#
 OBJ_DIR 	= obj/
 
@@ -11,7 +11,8 @@ SRCS		= \
 main.cpp\
 ClapTrap.cpp\
 ScavTrap.cpp\
-FragTrap.cpp
+FragTrap.cpp\
+DiamondTrap.cpp
 
 OBJ_DIR 	= .obj
 
@@ -20,7 +21,9 @@ OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 HEADERS		= \
 ClapTrap.hpp\
 ScavTrap.cpp\
-FragTrap.hpp
+FragTrap.hpp\
+DiamondTrap.hpp
+
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
