@@ -1,23 +1,23 @@
 #include "DiamondTrap.hpp"
 
 /* Canonical Form -- START */
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap(void)
 {
 	std::cout << "DiamondTrap default constructor !" << std::endl;
 }
 
-DiamondTrap::~DiamondTrap()
+DiamondTrap::~DiamondTrap(void)
 {
 	std::cout << "DiamondTrap destructor !" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap &parent)
+DiamondTrap::DiamondTrap(const DiamondTrap &parent)
 {
 	std::cout << "DiamondTrap parent constructor !" << std::endl;
 	*this = parent;
 }
 
-DiamondTrap& DiamondTrap::operator=(DiamondTrap &parent)
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap &parent)
 {
 	_name = parent._name;
 	defineName(parent.getName());
@@ -27,16 +27,22 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap &parent)
 	return (*this);
 }
 /* Canonical Form -- END */
+#include <stdio.h>
 
-DiamondTrap::DiamondTrap(std::string name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
 	std::cout << "DiamondTrap named constructor !" << std::endl;
-	defineName(name + "_clap_name");
 	_name = name;
+	printf("energy scav %d | frag %d\n", ScavTrap::getEnergyPoints(), FragTrap::getEnergyPoints());
 	defineHitPoints(FragTrap::getHitPoints());
 	defineEnergyPoints(ScavTrap::getEnergyPoints());
 	defineAttackDamage(FragTrap::getAttackDamage());
 }
+
+std::string DiamondTrap::getDiamondName(void)
+{
+	return (_name);
+} 
 
 void DiamondTrap::attack(const std::string& target)
 {

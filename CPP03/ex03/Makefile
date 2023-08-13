@@ -20,7 +20,7 @@ OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
 ClapTrap.hpp\
-ScavTrap.cpp\
+ScavTrap.hpp\
 FragTrap.hpp\
 DiamondTrap.hpp
 
