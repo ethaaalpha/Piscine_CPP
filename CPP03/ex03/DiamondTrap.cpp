@@ -27,16 +27,14 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &parent)
 	return (*this);
 }
 /* Canonical Form -- END */
-#include <stdio.h>
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name)
 {
 	std::cout << "DiamondTrap named constructor !" << std::endl;
 	_name = name;
-	printf("energy scav %d | frag %d\n", ScavTrap::getEnergyPoints(), FragTrap::getEnergyPoints());
-	defineHitPoints(FragTrap::getHitPoints());
-	defineEnergyPoints(ScavTrap::getEnergyPoints());
-	defineAttackDamage(FragTrap::getAttackDamage());
+	FragTrap::defineHitPoints(100);
+	ScavTrap::defineEnergyPoints(50);
+	FragTrap::defineAttackDamage(30);
 }
 
 std::string DiamondTrap::getDiamondName(void)
@@ -51,5 +49,5 @@ void DiamondTrap::attack(const std::string& target)
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << "DiamondTrap " << _name << " is thinking about existence of it self" << std::endl;
+	std::cout << "DiamondTrap " << _name << " is thinking about existence.." << std::endl;
 }
