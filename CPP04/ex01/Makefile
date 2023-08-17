@@ -3,7 +3,7 @@ CC 			= c++
 
 CFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
-NAME 		= ex00
+NAME 		= ex01
 #---------------------------------------------------#
 OBJ_DIR 	= obj/
 
@@ -13,7 +13,8 @@ Animal.cpp\
 Dog.cpp\
 Cat.cpp\
 WrongAnimal.cpp\
-WrongCat.cpp
+WrongCat.cpp\
+Brain.cpp
 
 OBJ_DIR 	= .obj
 
@@ -24,7 +25,8 @@ Animal.hpp\
 Dog.hpp\
 Cat.hpp\
 WrongAnimal.hpp\
-WrongCat.hpp
+WrongCat.hpp\
+Brain.hpp
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
