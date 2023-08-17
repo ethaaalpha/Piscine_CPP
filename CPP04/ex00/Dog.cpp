@@ -6,8 +6,9 @@ Dog::Dog(void) : Animal()
 	std::cout << "Dog default constructor !" << std::endl;
 }
 
-Dog::Dog(const Dog &parent)
+Dog::Dog(const Dog &parent) : Animal(parent)
 {
+	std::cout << "Dog parent constructor !" << std::endl;
 	*this = parent;
 }
 

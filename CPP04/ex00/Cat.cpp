@@ -6,8 +6,9 @@ Cat::Cat(void) : Animal()
 	std::cout << "Cat default constructor !" << std::endl;
 }
 
-Cat::Cat(const Cat &parent)
+Cat::Cat(const Cat &parent) : Animal(parent)
 {
+	std::cout << "Cat parent constructor !" << std::endl;
 	*this = parent;
 }
 

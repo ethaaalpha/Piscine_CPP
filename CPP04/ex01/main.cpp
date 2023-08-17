@@ -1,23 +1,52 @@
-#include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongCat.hpp"
+#include "Cat.hpp"
 
-int main() {
-	// With the virtual keyword so changing after compilation
-	const Animal* meta = new Animal();
+int main(void)
+{
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); 
-	j->makeSound();
-    meta->makeSound();
+	delete j;
+	delete i;
 
-	// Without the virtual keyword so decide at the compilation
-	const WrongAnimal* Wmeta = new WrongAnimal();
-	const WrongAnimal* Wi = new WrongCat();
-	std::cout << Wi->getType() << " " << std::endl;
-	Wi->makeSound(); 
-    Wmeta->makeSound();
-return 0; 
+	std::cout << std::endl;
+
+	Animal *animals[4];
+	animals[0] = new Cat();
+	animals[1] = new Cat();
+	animals[2] = new Dog();
+	animals[3] = new Dog();
+
+	for (int i = 0; i < 4; i++)
+		animals[i]->makeSound();
+	
+	for (int i = 0; i < 4; i++)
+		delete animals[i];
+
+
+	Cat cat = Cat();
+	std::cout << std::endl << "Les idées du chat :" << std::endl; 
+	cat.getBrain()->setIdea("Une idée vraiment incroyable", 0);
+	cat.getBrain()->setIdea("Une seconde idée vraiment incroyable", 1);
+	cat.getBrain()->setIdea("Une troisième idée vraiment incroyable", 99);
+	cat.getBrain()->printIdeas();
+	std::cout << std::endl;
+
+	Cat cat_copy = cat;
+	std::cout << std::endl << "Les idées du chat copié :" << std::endl; 
+	cat.getBrain()->printIdeas();
+	std::cout << std::endl;
+
+	cat.getBrain()->setIdea("Une idée pas si incroyable" , 0);
+	cat.getBrain()->setIdea("Une seconde idée désastreuse", 1);
+	cat.getBrain()->setIdea("Une troisième idée catastrophique", 99);
+	cat_copy.getBrain()->setIdea("Une quatrième idée incroyable", 4);
+	cat_copy.getBrain()->setIdea("Une cinquième idée incroyable", 5);
+
+	std::cout << std::endl << "Les idées du chat :" << std::endl;
+	cat.getBrain()->printIdeas();
+
+	std::cout << std::endl << "Les idées du chat copié :" << std::endl;
+	cat_copy.getBrain()->printIdeas();  
+
+	return 0;
 }
