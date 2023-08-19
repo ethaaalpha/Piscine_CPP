@@ -12,12 +12,17 @@ AAnimal::AAnimal(const AAnimal &parent)
 	*this = parent;
 }
 
+AAnimal::~AAnimal(void)
+{
+	std::cout << "Animal destructor !" << std::endl;
+}
+
 AAnimal& AAnimal::operator=(const AAnimal &parent)
 {
 	type = parent.type;
-	return (*this);
+	return (*this);     
 }
-
+               
 std::string AAnimal::getType(void) const
 {
 	return (type);
