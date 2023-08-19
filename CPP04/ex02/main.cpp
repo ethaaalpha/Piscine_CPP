@@ -3,6 +3,16 @@
 
 int main(void)
 {
+	// const AAnimal* meta1 = new AAnimal(); uncomment to proves that it's abstract
+	const AAnimal* j1 = new Dog();
+	const AAnimal* i1 = new Cat();
+	std::cout << j1->getType() << " " << std::endl;
+	std::cout << i1->getType() << " " << std::endl;
+	i1->makeSound(); 
+	j1->makeSound();
+
+	std::cout << std::endl << std::endl;
+
 	const AAnimal* j = new Dog();
 	const AAnimal* i = new Cat();
 	delete j;
