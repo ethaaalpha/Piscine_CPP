@@ -1,7 +1,7 @@
 #---------------------------------------------------#
 CC 			= c++
 
-CFLAGS 		= -Wall -Wextra -Werror -std=c++98
+CFLAGS 		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 NAME 		= ex03
 #---------------------------------------------------#
@@ -9,14 +9,21 @@ OBJ_DIR 	= obj/
 
 SRCS		= \
 main.cpp\
-AMateria.cpp
+AMateria.cpp\
+Character.cpp\
+Cure.cpp\
+Ice.cpp\
 
 OBJ_DIR 	= .obj
 
 OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
-AMateria.hpp
+AMateria.hpp\
+Character.hpp\
+Cure.hpp\
+Ice.hpp\
+ICharacter.hpp\
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
