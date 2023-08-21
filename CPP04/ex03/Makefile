@@ -13,6 +13,7 @@ AMateria.cpp\
 Character.cpp\
 Cure.cpp\
 Ice.cpp\
+MateriaSource.cpp
 
 OBJ_DIR 	= .obj
 
@@ -24,6 +25,8 @@ Character.hpp\
 Cure.hpp\
 Ice.hpp\
 ICharacter.hpp\
+IMateriaSource.hpp\
+MateriaSource.hpp
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
