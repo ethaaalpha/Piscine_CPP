@@ -15,7 +15,7 @@ public:
 	Form(void);
 	Form(const Form& parent);
 	Form& operator=(const Form& parent);
-	~Form(void);
+	virtual ~Form(void) = 0;
 	
 	// Accessers and setters
 	const std::string getName() const;
@@ -28,6 +28,7 @@ public:
 
 	// Use
 	void beSigned(Bureaucrat &user);
+	virtual void execute(Bureaucrat const & executor) const;
 };
 
 //Iostream

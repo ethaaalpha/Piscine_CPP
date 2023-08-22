@@ -77,6 +77,15 @@ void Bureaucrat::signForm(Form &form)
 	}
 }
 
+void Bureaucrat::executeForm(Form const & form)
+{
+	try {
+		form.execute(*this);
+	} catch (Bureaucrat::GradeTooLowException e) {
+		std::cout << getName() << " couldn't execute " << form.getName() << " because his rank is took low" << std::endl;
+	}
+}
+
 std::ostream& operator<<(std::ostream& os, Bureaucrat &bc)
 {
 	os << bc.getName() << ", bureaucrat grade " << bc.getRank() << std::endl;
