@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("default"), _rank(150)
 {
@@ -66,6 +66,15 @@ void Bureaucrat::rankUp(void)
 		throw (Bureaucrat::GradeTooHighException());
 	_rank = _rank - 1;
 	std::cout << "Bureaucrat " << getName() << " win a rank, actual rank " << getRank() << std::endl;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	try {
+		form.beSigned(*this);
+	} catch (Bureaucrat::GradeTooLowException e){
+		std::cout << getName() << " couldn't sign " << form.getName() << " because his rank is too low !" << std::endl;
+	}
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat &bc)
