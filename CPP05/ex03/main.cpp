@@ -1,51 +1,44 @@
-#include "PresidentialPardonForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
-	Bureaucrat christine = Bureaucrat("Christine", 130);
-	Bureaucrat boris = Bureaucrat("Boris", 60);
 	Bureaucrat sandrine = Bureaucrat("Sandrine", 4);
-	std::cout << christine;
-	std::cout << boris;
+	
 	std::cout << sandrine;
 
 	std::cout << std::endl;
-	PresidentialPardonForm presidential_form = PresidentialPardonForm("Kylie Jenner");
-	RobotomyRequestForm robotomy_form = RobotomyRequestForm("Robert Pattinson");
-	ShrubberyCreationForm shrubbery_form = ShrubberyCreationForm("Elon Musk");
+	Intern intern = Intern();
 
+	Form* formList[4];
+	formList[0] = intern.makeForm("presidential pardon", "Michael");
 	std::cout << std::endl;
-	christine.executeForm(presidential_form);
-	boris.executeForm(presidential_form);
-	sandrine.executeForm(presidential_form);
-
+	formList[1] = intern.makeForm("robotomy request", "David");
 	std::cout << std::endl;
-	christine.signForm(presidential_form);
-	boris.signForm(presidential_form);
-	sandrine.signForm(presidential_form);
-
+	formList[2] = intern.makeForm("shrubbery creation", "Elies");
 	std::cout << std::endl;
-	christine.executeForm(presidential_form);
-	boris.executeForm(presidential_form);
-	sandrine.executeForm(presidential_form);
-
-	std::cout << std::endl;
-	sandrine.signForm(robotomy_form);
-	sandrine.signForm(shrubbery_form);
-
-	std::cout << std::endl;
-	sandrine.executeForm(robotomy_form);
-	sandrine.executeForm(shrubbery_form);
+	formList[3] = intern.makeForm("unknow form", "Elies");
 
 	std::cout << std::endl;
 	try {
-		robotomy_form.execute(boris);
+		sandrine.signForm(*formList[0]);
+		sandrine.signForm(*formList[1]);
+		sandrine.signForm(*formList[2]);
+
+		std::cout << std::endl;
+		sandrine.executeForm(*formList[0]);
+		std::cout << std::endl;
+		sandrine.executeForm(*formList[1]);
+		std::cout << std::endl;
+		sandrine.executeForm(*formList[2]);
+
 	} catch (std::exception &e) {
 		std::cout << e.what();
 	}
 	std::cout << std::endl;
 
+	std::cout << formList[3] << std::endl;
+	delete (formList[0]);
+	delete (formList[1]);
+	delete (formList[2]);
 	return 0;
 }

@@ -17,6 +17,7 @@ Intern::Intern(const Intern& parent)
 Intern& Intern::operator=(const Intern& parent)
 {
     (void) parent;
+	return (*this);
 }
 
 Intern::~Intern(void)
@@ -24,30 +25,34 @@ Intern::~Intern(void)
     std::cout << "Intern destructor" << std::endl;
 }
 
+Form* Intern::makePresident(std::string target)
+{
+	return (new PresidentialPardonForm(target));
+}
+
+Form* Intern::makeRobotomy(std::string target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+Form* Intern::makeShrubbery(std::string target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+
 Form* Intern::makeForm(std::string formType, std::string target)
 {
     int i = 0;
     std::string types[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
-    void (*functions[3])() const = (&Form::pre, &RobotomyRequestForm::RobotomyRequestForm(target), &ShrubberyCreationForm::ShrubberyCreationForm(target));
-
-    while (types[i] != formType && i > 2)
+    Form* (Intern::*functions[3])(std::string) = {&Intern::makePresident, &Intern::makeRobotomy, &Intern::makeShrubbery};
+	
+    while (i < 3 && types[i] != formType)
         i++;
-    switch (i)
-    {
-    case 0:
-        functions[0]();
-        std::cout << "Inter creates " << formType << std::endl;
-        break;
-    case 1:
-        functions[1]();
-        std::cout << "Inter creates " << formType << std::endl;
-        break;
-    case 2:
-        functions[2]();
-        std::cout << "Inter creates " << formType << std::endl;
-        break;
-    default:
-        std::cout << "Error : this type of form isn't existing "
-        break;
-    }
+	if (i == 3)
+	{
+		std::cout << "Error : this type of form isn't existing" << std::endl;
+		return (NULL);
+	}
+    std::cout << "Inter creates " << formType << std::endl;
+    return (this->*functions[i])(target);
 }

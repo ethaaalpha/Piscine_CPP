@@ -3,6 +3,11 @@
 
 class Intern
 {
+private:
+	Form* makePresident(std::string target);
+	Form* makeRobotomy(std::string target);
+	Form* makeShrubbery(std::string target);
+
 public:
     Intern(void);
     Intern(const Intern& parent);
