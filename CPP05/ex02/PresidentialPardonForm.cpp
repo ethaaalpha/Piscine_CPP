@@ -1,11 +1,11 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : Form("ShrubberyCreationForm", 145, 137), _target("default")
+PresidentialPardonForm::PresidentialPardonForm(void) : Form("PresidentialPardonForm", 25, 5), _target("default")
 {
 	std::cout << "PresidentialPardonForm default constructor" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& parent) : Form("ShrubberyCreationForm", 145, 137)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& parent) : Form("PresidentialPardonForm", 25, 5)
 {
 	std::cout << "PresidentialPardonForm parent constructor" << std::endl;
 	(*this) = parent;
@@ -22,7 +22,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 	std::cout << "PresidentialPardonForm destructor" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("ShrubberyCreationForm", 145, 137), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5), _target(target)
 {
 	std::cout << "PresidentialPardonForm named constructor" << std::endl;
 }
@@ -30,5 +30,5 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Shrub
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	Form::execute(executor);
-	// do what you need to do here
+	std::cout << _target << " was forgiven by Zaphod Beeblebrox" << std::endl;
 }
