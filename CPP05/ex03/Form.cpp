@@ -58,12 +58,28 @@ void Form::beSigned(Bureaucrat &user)
 {
 	if (user.getRank() <= _rank_to_sign)
 	{
-		std::cout << user.getName() << " signed " << getName() << std::endl;
 		_status = true;
+		std::cout << user.getName() << " signed " << getName() << std::endl;
 	}
 	else
 		throw Bureaucrat::GradeTooLowException();
 }
+
+void Form::execute(Bureaucrat const & executor) const
+{
+	if (_status == false)
+		throw (Form::NotSignedException());
+	if (executor.getRank() > getRankToUse())
+		throw (Bureaucrat::GradeTooLowException());
+	else
+		std::cout << executor.getName() << " executed " << getName() << std::endl;
+}
+
+const char* Form::NotSignedException::what(void) const throw()
+{
+	return ("The form need to be signed !");
+}
+
 
 std::ostream& operator<<(std::ostream& os, Form &form)
 {

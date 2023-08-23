@@ -19,5 +19,11 @@ int main() {
 	std::cout << Wi->getType() << " " << std::endl;
 	Wi->makeSound(); 
     Wmeta->makeSound();
-return 0; 
+
+	delete (Wmeta);
+	delete (Wi);
+	delete (meta);
+	delete (i);
+	delete (j);
+	return 0; 
 }

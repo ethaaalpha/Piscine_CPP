@@ -11,6 +11,9 @@ int main(void)
 	i1->makeSound(); 
 	j1->makeSound();
 
+	delete (j1);
+	delete (i1);
+
 	std::cout << std::endl << std::endl;
 
 	const AAnimal* j = new Dog();
