@@ -29,6 +29,13 @@ public:
 	// Use
 	void beSigned(Bureaucrat &user);
 	virtual void execute(Bureaucrat const & executor) const;
+
+	// Exceptions
+	class NotSignedException : public std::exception
+	{
+	public:
+		virtual const char* what() const throw();
+	};
 };
 
 //Iostream

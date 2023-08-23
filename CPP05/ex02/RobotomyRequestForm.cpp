@@ -1,5 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm(void) : Form("RobotomyRequestForm", 72, 45), _target("default")
 {
@@ -31,6 +32,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyReq
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	Form::execute(executor);
+	std::srand(std::time(NULL));
 	int number = std::rand();
 	
 	std::cout << "* drill's noises *" << std::endl;

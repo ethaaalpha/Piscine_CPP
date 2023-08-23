@@ -33,5 +33,20 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	Form::execute(executor);
 	
 	std::ofstream ofs(_target.c_str());
-	if (ofs->.)
+	if (ofs.fail() == 1)
+	{
+		std::cout << executor.getName() << " fail to create the file while executing form : " << getName() << std::endl;
+	}
+	else
+	{
+		ofs << "       _-_" << std::endl;
+		ofs << "    /~~   ~~\\" << std::endl;
+		ofs << " /~~         ~~\\" << std::endl;
+		ofs << "{               }" << std::endl;
+		ofs << " \\  _-     -_  /" << std::endl;
+		ofs << "   ~  \\ //  ~" << std::endl;
+		ofs << "_- -   | | _- _" << std::endl;
+		ofs << "  _ -  | |   -_" << std::endl;
+		ofs << "      // \\\\" << std::endl;
+	}
 }
