@@ -6,7 +6,7 @@ WrongCat::WrongCat(void) : WrongAnimal()
 	std::cout << "WrongCat default constructor !" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &parent) : WrongCat(parent)
+WrongCat::WrongCat(const WrongCat &parent) : WrongAnimal(parent)
 {
 	std::cout << "WrongCat parent constructor !" << std::endl;
 	*this = parent;
