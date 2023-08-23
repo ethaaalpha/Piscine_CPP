@@ -2,12 +2,12 @@
 
 Cure::Cure(void) : AMateria("cure")
 {
-	std::cout << "Cure default constructor" << std::endl;
+	// std::cout << "Cure default constructor" << std::endl;
 }
 
 Cure::Cure(const Cure& parent) : AMateria(parent.getType())
 {
-	std::cout << "Cure parent constructor" << std::endl;
+	// std::cout << "Cure parent constructor" << std::endl;
 }
 
 Cure& Cure::operator=(const Cure& parent)
@@ -18,7 +18,7 @@ Cure& Cure::operator=(const Cure& parent)
 
 Cure::~Cure()
 {
-	std::cout << "Cure destructor" << std::endl;
+	// std::cout << "Cure destructor" << std::endl;
 }
 
 Cure* Cure::clone() const

@@ -2,12 +2,12 @@
 
 Ice::Ice(void) : AMateria("ice")
 {
-	std::cout << "Ice default constructor" << std::endl;
+	// std::cout << "Ice default constructor" << std::endl;
 }
 
 Ice::Ice(const Ice& parent) : AMateria(parent.getType())
 {
-	std::cout << "Ice parent constructor" << std::endl;
+	// std::cout << "Ice parent constructor" << std::endl;
 }
 
 Ice& Ice::operator=(const Ice& parent)
@@ -18,7 +18,7 @@ Ice& Ice::operator=(const Ice& parent)
 
 Ice::~Ice()
 {
-	std::cout << "Ice destructor" << std::endl;
+	// std::cout << "Ice destructor" << std::endl;
 }
 
 Ice* Ice::clone() const

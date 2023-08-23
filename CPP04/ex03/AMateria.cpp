@@ -2,7 +2,7 @@
 
 AMateria::AMateria(void)
 {
-	std::cout << "AMateria default constructor" << std::endl;
+	// std::cout << "AMateria default constructor" << std::endl;
 }
 
 AMateria& AMateria::operator=(const AMateria& parent) 
@@ -13,18 +13,18 @@ AMateria& AMateria::operator=(const AMateria& parent)
 
 AMateria::AMateria(const AMateria& parent)
 {
-	std::cout << "AMateria parent constructor" << std::endl;
+	// std::cout << "AMateria parent constructor" << std::endl;
 	*this = parent;
 }
 
 AMateria::~AMateria(void)
 {
-	std::cout << "AMateria destructor" << std::endl;
+	// std::cout << "AMateria destructor" << std::endl;
 }
 
 AMateria::AMateria(std::string const & type) : _type(type)
 {
-	std::cout << "AMateria typed constructor" << std::endl; 
+	// std::cout << "AMateria typed constructor" << std::endl; 
 }
 
 const std::string& AMateria::getType() const

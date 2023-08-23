@@ -2,14 +2,14 @@
 
 MateriaSource::MateriaSource()
 {
-	std::cout << "MateriaSource default constructor" << std::endl;
+	// std::cout << "MateriaSource default constructor" << std::endl;
 	for (int i = 0; i < 4; i++)
 		_memory[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& parent)
 {
-	std::cout << "MateriaSource parent constructor" << std::endl;
+	// std::cout << "MateriaSource parent constructor" << std::endl;
 	(*this) = parent;
 }
 
@@ -22,7 +22,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& parent)
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "MateriaSource destructor" << std::endl;
+	// std::cout << "MateriaSource destructor" << std::endl;
 }
 
 void MateriaSource::learnMateria(AMateria* source)
@@ -46,5 +46,5 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 			return (_memory[i]->clone());
 	}
 	std::cout << "You don't already know Materia : " << type << std::endl; 
-	return (NULL);
+	return (0);
 }
