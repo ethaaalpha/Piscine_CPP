@@ -47,7 +47,9 @@ Form* Intern::makeForm(std::string formType, std::string target)
     Form* (Intern::*functions[3])(std::string) = {&Intern::makePresident, &Intern::makeRobotomy, &Intern::makeShrubbery};
 	
     while (i < 3 && types[i] != formType)
+    {    
         i++;
+    }
 	if (i == 3)
 	{
 		std::cout << "Error : this type of form isn't existing" << std::endl;
