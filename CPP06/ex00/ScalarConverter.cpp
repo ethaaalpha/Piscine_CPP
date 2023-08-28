@@ -1,8 +1,6 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(void)
-{
-}
+ScalarConverter::ScalarConverter(void) {}
 
 ScalarConverter::ScalarConverter(const ScalarConverter& parent)
 {
@@ -15,10 +13,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter &parent)
     return (*this);
 }
 
-ScalarConverter::~ScalarConverter(void)
-{
-}
-
+ScalarConverter::~ScalarConverter(void) {}
 
 const char* ScalarConverter::ImpossibleException::what(void) const throw()
 {
