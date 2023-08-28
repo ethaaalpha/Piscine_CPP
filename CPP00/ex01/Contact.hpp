@@ -1,3 +1,4 @@
+e as member type string::size_type).
 #ifndef CONTACT_CLASS_HPP
 #define CONTACT_CLASS_HPP
 

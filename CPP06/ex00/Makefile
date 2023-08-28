@@ -1,20 +1,22 @@
 #---------------------------------------------------#
 CC 			= c++
 
-CFLAGS 		= -Wall -Wextra -Werror -std=c++98
+CFLAGS 		= -fsanitize=address#-Wall -Wextra -Werror -std=c++98 
 
 NAME 		= ex00
 #---------------------------------------------------#
 OBJ_DIR 	= obj/
 
 SRCS		= \
-main.cpp
+main.cpp\
+ScalarConverter.cpp
 
 OBJ_DIR 	= .obj
 
 OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
+ScalarConverter.hpp\
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
