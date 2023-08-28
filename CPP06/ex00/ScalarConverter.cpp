@@ -56,7 +56,7 @@ void ScalarConverter::getChar(double value, std::string org)
         throw (ScalarConverter::ImpossibleException());
    	else if ((value < 31) || (value > 127))
 		throw (ScalarConverter::NonDisplayableException()); 
-	std::cout << static_cast<char> (value) << std::endl;
+	std::cout << "'" <<  static_cast<char> (value) << "'" << std::endl;
 }
 
 void ScalarConverter::getInt(double value, std::string org)
