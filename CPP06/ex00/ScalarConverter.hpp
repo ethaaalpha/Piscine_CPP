@@ -1,25 +1,36 @@
 #pragma once
 #include <iostream>
-#include <cstdlib>
 #include <iomanip>
+#include <limits>
 
 class ScalarConverter
 {
 private:
     ScalarConverter(void);
-    
+
 public:
     ScalarConverter(const ScalarConverter& parent);
     ScalarConverter& operator=(const ScalarConverter& parent);
     ~ScalarConverter(void);
 
+	class ImpossibleException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+
+	class NonDisplayableException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+
+	// useful functions 
+	static void getChar(double value, std::string org);
+	static void getInt(double value, std::string org);
+	static void getFloat(double value, std::string org);
+	static void getDouble(double value, std::string org);
+
+	static void showItem(std::string type, void (*convert_function)(double value, std::string org), double value, std::string org);
+	static int precisionShow(const char *str);
+	
     static void convert(std::string str);
 };
-
-std::string getType(std::string str);
-int isChar(std::string str);
-int isInt(std::string str);
-int isFloat(std::string str);
-int isDouble(std::string str);
-int precisionShow(const char *str);
-char showChar(double value);
