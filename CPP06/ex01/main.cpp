@@ -13,7 +13,7 @@ int main(void)
 
 	uintptr_t value = Serializer::serialize(&data_before);
 	data_after = Serializer::deserialize(value);
-	std::cout << "Adresse data_after : " << &data_after << std::endl;
+	std::cout << "Adresse data_after : " << data_after << std::endl;
 	std::cout << "Number data_after : " << data_after->number << std::endl;
 	std::cout << "String data_after : " << data_after->text << std::endl;
 

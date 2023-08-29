@@ -23,11 +23,11 @@ void Base::identify(Base* p)
 	B *b = dynamic_cast<B*> (p);
 	C *c = dynamic_cast<C*> (p);
 
-	if (a != nullptr)
+	if (a != NULL)
 		std::cout << "The type is A" << std::endl;
-	else if (b != nullptr)
+	else if (b != NULL)
 		std::cout << "The type is B" << std::endl;
-	else if (c != nullptr)
+	else if (c != NULL)
 		std::cout << "The type is C" << std::endl;
 }
 
@@ -37,17 +37,17 @@ void Base::identify(Base& p)
 		A &a = dynamic_cast<A&> (p);
 		(void) a;
 		std::cout << "The type is A" << std::endl;
-	} catch (std::bad_cast &e) {}
+	} catch (std::exception &e) {}
 
 	try {
 		B &b = dynamic_cast<B&> (p);
 		(void) b;
 		std::cout << "The type is B" << std::endl;
-	} catch (std::bad_cast &e) {}
+	} catch (std::exception &e) {}
 
 	try {
 		C &c = dynamic_cast<C&> (p);
 		(void) c;
 		std::cout << "The type is C" << std::endl;
-	} catch (std::bad_cast &e) {}
+	} catch (std::exception &e) {}
 }
