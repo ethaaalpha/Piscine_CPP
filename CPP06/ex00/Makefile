@@ -3,7 +3,7 @@ CC 			= c++
 
 CFLAGS 		= -Wall -Wextra -Werror -std=c++98 
 
-NAME 		= ex00
+NAME 		= convert
 #---------------------------------------------------#
 OBJ_DIR 	= obj/
 

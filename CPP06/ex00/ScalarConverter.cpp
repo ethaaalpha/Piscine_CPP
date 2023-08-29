@@ -47,7 +47,9 @@ void ScalarConverter::showItem(std::string type, void (*convert_function)(double
 void ScalarConverter::getChar(double value, std::string org)
 {
 	(void) org;
-	if ((value <= 0) || (value >= 255))
+	if (org == "nan" || org == "nanf" || org == "+inf" || org == "+inff" || org == "-inf" || org == "-inff")
+		throw (ScalarConverter::ImpossibleException());
+	if ((value < 0) || (value > 255))
         throw (ScalarConverter::ImpossibleException());
    	else if ((value < 31) || (value > 127))
 		throw (ScalarConverter::NonDisplayableException()); 
@@ -58,6 +60,8 @@ void ScalarConverter::getInt(double value, std::string org)
 {
 	int i = 0;
 
+	if (org == "nan" || org == "nanf" || org == "+inf" || org == "+inff" || org == "-inf" || org == "-inff")
+		throw (ScalarConverter::ImpossibleException());
 	if ((org.at(i) == '-' || org.at(i) == '+') && org.length() > 1)
 		i++;
 	if (org.at(i) != '0' && value == 0)
@@ -83,9 +87,9 @@ void ScalarConverter::getFloat(double value, std::string org)
 		std::cout << "nanf" << std::endl;
 		return ;
 	}
-	if (value == 0)
+	if (floor(value) == value)
 	{
-		std::cout << "0.0f" << std::endl;
+		std::cout << value << ".0f" << std::endl;
 		return ;
 	}
 	if (value < std::numeric_limits<float>::min())
@@ -94,8 +98,9 @@ void ScalarConverter::getFloat(double value, std::string org)
 		std::cout << "+inff" << std::endl;
 	else
 	{
+		float newValue = static_cast<float> (value);
 		std::cout << std::setprecision(precisionShow(org.c_str()));
-		std::cout << static_cast<float> (value) << "f" << std::endl;
+		std::cout << newValue << "f" << std::endl;
 	}
 }
 
@@ -115,9 +120,9 @@ void ScalarConverter::getDouble(double value, std::string org)
 		std::cout << "nan" << std::endl;
 		return ;
 	}
-	if (value == 0)
+	if (floor(value) == value)
 	{
-		std::cout << "0.0" << std::endl;
+		std::cout << value << ".0" << std::endl;
 		return ;
 	}
 	if (value < std::numeric_limits<double>::min())
