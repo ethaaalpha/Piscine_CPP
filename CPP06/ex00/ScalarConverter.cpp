@@ -46,7 +46,6 @@ void ScalarConverter::showItem(std::string type, void (*convert_function)(double
 
 void ScalarConverter::getChar(double value, std::string org)
 {
-	(void) org;
 	if (org == "nan" || org == "nanf" || org == "+inf" || org == "+inff" || org == "-inf" || org == "-inff")
 		throw (ScalarConverter::ImpossibleException());
 	if ((value < 0) || (value > 255))
