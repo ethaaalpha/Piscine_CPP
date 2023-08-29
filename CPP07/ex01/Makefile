@@ -15,7 +15,7 @@ OBJ_DIR 	= .obj
 OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
-whatever.hpp
+iter.hpp
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
