@@ -10,6 +10,8 @@ public:
 	MutantStack(const MutantStack& parent) : std::stack<T>(parent) {}
 	MutantStack& operator=(const MutantStack& parent)
 	{
+		std::stack<T>::c.begin();
+		https://stackoverflow.com/questions/525365/does-stdstack-expose-iterators
 		std::stack<T>::operator=(parent);
 		return (*this);
 	}
