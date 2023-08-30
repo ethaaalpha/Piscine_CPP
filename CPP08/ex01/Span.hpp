@@ -1,32 +1,44 @@
 #pragma once
+#include <exception>
 #include <algorithm>
 #include <iostream>
+#include <list>
+#include <cstdlib>
+#include <ctime>
 
 class Span
 {
 private:
-	/* data */
-public:
+	unsigned int					_size;
+	std::vector<unsigned int>		_tab;
 	Span(void);
+
+public:
 	Span(const Span& parent);
 	Span& operator=(const Span& parent);
 	~Span(void);
-};
 
-Span::Span(void)
-{
-}
+	Span(unsigned int n);
 
-Span::Span(const Span& parent)
-{
-	(*this) = parent;
-}
+	void addNumber(int value);
+	unsigned int shortestSpan(void);
+	unsigned int longestSpan(void);
+	void fillRange(std::vector<unsigned int>::iterator start, std::vector<unsigned int>::iterator end);
 
-Span& Span::operator=(const Span& parent)
-{
+	//tools
+	void show(void) const;
+	void fillRandom(void);
+
+	class SpanTooSmall : public std::exception
+	{
+	public:
+		virtual const char* what() const throw() { return ("Span is too small to do operation !");}
+	};
 	
-}
-
-Span::~Span(void)
-{
-}
+	class OutOfSize : public std::exception
+	{
+	public:
+		virtual const char* what() const throw() { return ("Attempt to go out the size of the span !");}
+	};
+	
+};
