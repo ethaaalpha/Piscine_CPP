@@ -1,0 +1,6 @@
+Use of containers in the differents modules
+
+
+- > Ex00 = BitCoin Exchange : Map ?
+- > Ex01 = Reverse Polish Notation : Stack OK
+- > Ex02 = PMerge-Me : list and something else ?
