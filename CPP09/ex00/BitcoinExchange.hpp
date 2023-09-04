@@ -1,13 +1,28 @@
 #pragma once
+#include <iostream>
+#include <fstream>
+#include <map>
+#include <exception>
+#include <iterator>
 
 class BitcoinExchange
 {
 private:
-	/* data */
-	BitcoinExchange(void);
+	std::map<std::string, std::string> 	_historicValues;
+	std::map<std::string, std::string> 	_inputValues;
+
+
 public:
+
+	BitcoinExchange(void);
 	BitcoinExchange(const BitcoinExchange& parent);
 	BitcoinExchange& operator=(const BitcoinExchange& parent);
 	~BitcoinExchange(void);
-};
 
+	void	fillHistoricValues(const char *filename);
+	class FileErrorException : public std::exception
+	{
+	public:
+		virtual const char * what() const throw () { return ("An error occured with the input file !");}
+	};
+};

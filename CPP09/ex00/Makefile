@@ -8,13 +8,15 @@ NAME 		= btc
 OBJ_DIR 	= obj/
 
 SRCS		= \
-main.cpp
+main.cpp\
+BitcoinExchange.cpp
 
 OBJ_DIR 	= .obj
 
 OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
+BitcoinExchange.hpp
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
