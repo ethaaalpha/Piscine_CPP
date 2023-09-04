@@ -52,4 +52,51 @@ int main(void)
 		}
 		MutantStack<int> s(mstack);
 	}
+	std::cout << std::endl << "Additional Tests " << std::endl;
+	{
+		MutantStack<char> mstack;
+		mstack.push('a');
+		mstack.push('b');
+		mstack.push('c');
+		mstack.push('d');
+
+		MutantStack<char>::iterator 				begin = mstack.begin();
+		MutantStack<char>::const_iterator 			cbegin = mstack.cbegin();
+		MutantStack<char>::iterator 				end = mstack.end();
+		MutantStack<char>::const_iterator 			cend = mstack.cend();
+		MutantStack<char>::reverse_iterator 		rbegin = mstack.rbegin();
+		MutantStack<char>::const_reverse_iterator 	crbegin = mstack.crbegin();
+		MutantStack<char>::reverse_iterator 		rend = mstack.rend();
+		MutantStack<char>::const_reverse_iterator 	crend = mstack.crend();
+
+		std::cout << *begin << std::endl;
+		std::cout << *cbegin << std::endl;
+		std::cout << *(end - 1) << std::endl;
+		std::cout << *(cend - 1) << std::endl;
+		std::cout << *rbegin << std::endl;
+		std::cout << *crbegin<< std::endl;
+		std::cout << *(rend - 1) << std::endl;
+		std::cout << *(crend - 1) << std::endl;
+	
+		/*  
+		Explanation of the iterators :
+
+		Begin :
+		 	| a | b | c | d | END |
+			Begin = A, then go ->
+
+		End :
+		 	| a | b | c | d | END |
+			End = END (becareful points to the value following the LAST elements), then go ->
+	
+		Reverse Begin :
+			| REND | a | b | c | d |
+			Reverse Begin = d , then go <-
+
+		Reverse End :
+			| REND | a | b | c | d |
+			Reverse Begin = REND (same as end it is AFTER the LAST value) , then go <-
+
+		*/
+	}
 }

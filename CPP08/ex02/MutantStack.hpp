@@ -33,7 +33,7 @@ public:
 		return (std::stack<T>::c.end());
 	}
 
-	const_iterator end(void) const {
+	const_iterator cend(void) const {
 		return (std::stack<T>::c.end());
 	}
 
@@ -41,7 +41,7 @@ public:
 		return (std::stack<T>::c.rbegin());
 	}
 	
-	const_reverse_iterator rbegin (void) const {
+	const_reverse_iterator crbegin (void) const {
 		return (std::stack<T>::c.rbegin());
 	}
 
@@ -49,7 +49,7 @@ public:
 		return (std::stack<T>::c.rend());
 	}
 	
-	const_reverse_iterator rend (void) const {
+	const_reverse_iterator crend (void) const {
 		return (std::stack<T>::c.rend());
 	}
 
