@@ -12,9 +12,14 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& parent)
 
 BitcoinExchange::~BitcoinExchange(void) {}
 
-void BitcoinExchange::fillHistoricValues(const char *filename)
+void	BitcoinExchange::doAnalyse(char const *input)
 {
-	std::ifstream 	ifs(filename);
+
+}
+
+void	BitcoinExchange::fillHistoricValues(void)
+{
+	std::ifstream 	ifs("data.csv");
 	std::string		key;
 	std::string		value;
 	
@@ -28,3 +33,5 @@ void BitcoinExchange::fillHistoricValues(const char *filename)
 		_historicValues.insert(std::pair<std::string, std::string>(key, value));
 	}
 }
+
+

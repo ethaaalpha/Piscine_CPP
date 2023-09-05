@@ -4,6 +4,6 @@ int main(void)
 {
 	BitcoinExchange btc;
 
-	btc.fillHistoricValues("data.csv");
+	btc.fillHistoricValues();
 	return (0);
 }

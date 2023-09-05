@@ -19,7 +19,10 @@ public:
 	BitcoinExchange& operator=(const BitcoinExchange& parent);
 	~BitcoinExchange(void);
 
-	void	fillHistoricValues(const char *filename);
+	void	doAnalyse(char const *input);
+
+	void	fillHistoricValues(void);
+	void 	fillInputValues(const char *filename);
 	class FileErrorException : public std::exception
 	{
 	public:
