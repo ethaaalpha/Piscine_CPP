@@ -64,8 +64,6 @@ void 	BitcoinExchange::doInputValues(const char *filename)
 	}
 }
 
-// 2011-01-03 | 3
-
 void BitcoinExchange::treatDate(std::string date)
 {
 	int 	year, month, day;
@@ -107,7 +105,6 @@ void	BitcoinExchange::getAnalyseLine(std::string line)
 {
 	double quantity, value;
 
-	std::cout << line << std::endl;
 	if (line.length() < 14)
 		throw (LineTooShortException());
 	if (line[10] != ' ' || line[11] != '|' || line[12] != ' ')
