@@ -3,6 +3,7 @@
 #include <iterator>
 #include <algorithm>
 #include <list>
+#include <vector>
 #include <exception>
 
 class NotFoundException : public std::exception {

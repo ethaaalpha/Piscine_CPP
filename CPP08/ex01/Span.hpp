@@ -5,6 +5,7 @@
 #include <list>
 #include <cstdlib>
 #include <ctime>
+#include <vector>
 
 class Span
 {

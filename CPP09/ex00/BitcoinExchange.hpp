@@ -6,6 +6,7 @@
 #include <exception>
 #include <algorithm>
 #include <iterator>
+#include <limits>
 
 class BitcoinExchange
 {
