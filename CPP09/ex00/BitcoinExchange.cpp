@@ -6,7 +6,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& parent) { *this = parent
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& parent)
 {
-	(void) parent;
+	_historicValues = parent._historicValues;
 	return (*this);
 }
 
@@ -103,6 +103,7 @@ float BitcoinExchange::treatValue(std::string value)
 
 void	BitcoinExchange::getAnalyseLine(std::string line)
 {
+	std::map<std::string, float>::iterator it;
 	double quantity, value;
 
 	if (line.length() < 14)
@@ -112,10 +113,13 @@ void	BitcoinExchange::getAnalyseLine(std::string line)
 	treatDate(line);
 	quantity = treatValue(line);
 	line.resize(10);
-	std::map<std::string, float>::iterator it = _historicValues.lower_bound(line);
-	--it;
+
+	if (_historicValues.find(line) != _historicValues.end())
+		it = _historicValues.find(line);
+	else
+		it = --_historicValues.lower_bound(line);
 	value = it->second;
-	std::cout << line << " => " << quantity * value << std::endl;
+	std::cout << line << " => " << quantity << " = " << quantity * value << std::endl;
 }
 
 float ft_stof(std::string value)

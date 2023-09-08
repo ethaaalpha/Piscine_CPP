@@ -1,7 +1,5 @@
 #include "BitcoinExchange.hpp"
 
-// faire la forme canonique
-
 int main(int argc, char **argv)
 {
 	BitcoinExchange btc;
