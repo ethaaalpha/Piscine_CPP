@@ -8,6 +8,7 @@
 #include <ctime>
 #include <iomanip>
 #include <limits>
+#include <cstring>
 
 class PmergeMe
 {
