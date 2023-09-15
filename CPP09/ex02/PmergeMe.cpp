@@ -16,27 +16,52 @@ PmergeMe& PmergeMe::operator=(const PmergeMe &parent)
 
 PmergeMe::~PmergeMe(void) {}
 
-void print(std::deque<int> l)
+void printTab(const char **tab, int len)
+{
+	for (int i = 0; i < len; i++)
+	{
+		std::cout << tab[i];
+		if (i + 1 < len)
+			std::cout << " ";
+	}
+	std::cout << std::endl;
+}
+
+void printDeque(std::deque<int> l)
 {
 	for (std::deque<int>::iterator it = l.begin(); it != l.end(); it++)
 	{
-		std::cout << *it << " ";
+		std::cout << *it;
+		if (it + 1 != l.end())
+			std::cout << " ";
 	}
 	std::cout << std::endl;
 }
 // Time to process a range of 5 elements with std::[..] : 0.00031 us
 void PmergeMe::doSorts(const char *items[], int len)
 {
-	std::clock_t start, end;
-	double		value;
+	std::clock_t startList, endList, startDeque, endDeque;
+	double		valueList, valueDeque;
 
 	try {
 		treatEntry(items, len);
-		start = std::clock();
+
+		startList = std::clock();
 		handleListSort(items, len);
-		end = std::clock();
-		value = (double)(end - start) / CLOCKS_PER_SEC * 1000;
-		std::cout << "Time to process a range of " << len << " elements with std::list : " << std::setprecision(6) << value << " us" << std::endl;
+		endList = std::clock();
+		valueList = (double)(endList - startList) / CLOCKS_PER_SEC * 1000;
+	
+		startDeque = std::clock();
+		handleDequeSort(items, len);
+		endDeque = std::clock();
+		valueDeque = (double)(endDeque - startDeque) / CLOCKS_PER_SEC * 1000;
+
+		std::cout << "Before: ";
+		printTab(items, len);
+		std::cout << "After: ";
+		printDeque(_deque);
+		std::cout << "Time to process a range of " << len << " elements with std::list : " << std::setprecision(6) << valueList << " ms" << std::endl;
+		std::cout << "Time to process a range of " << len << " elements with std::deque : " << std::setprecision(6) << valueDeque << " ms" << std::endl;
 	} catch (std::exception &e) {
 		std::cout << "Error : " << e.what() << std::endl;
 	}
@@ -111,4 +136,63 @@ std::list<int> PmergeMe::mergeList(std::list<int> list)
 	left = mergeList(left);
 	right = mergeList(right);
 	return (mergeTwoLists(left, right));
+}
+
+void PmergeMe::handleDequeSort(const char *item[], int len)
+{
+	for (int i = 0; i < len; i++)
+		_deque.push_back(std::atoi(item[i]));
+	_deque = mergeDeque(_deque);
+}
+
+std::deque<int> PmergeMe::mergeTwoDeque(std::deque<int> a, std::deque<int> b)
+{
+	std::deque<int> 			result;
+	std::deque<int>::iterator	i, j;
+
+	while (a.size() + b.size() != 0)
+	{
+		if (a.size() == 0 || b.size() == 0)
+		{
+			if (a.size() == 0)
+				std::copy(b.begin(), b.end(), std::back_inserter(result));
+			else if (b.size() == 0)
+				std::copy(a.begin(), a.end(), std::back_inserter(result));
+			break;
+		}
+		i = std::min_element(a.begin(), a.end());
+		j = std::min_element(b.begin(), b.end());
+		if (*i > *j)
+		{
+			result.push_back(*j);
+			b.erase(j);
+		}
+		else
+		{
+			result.push_back(*i);
+			a.erase(i);
+		}		
+	}
+	return (result);
+}
+
+std::deque<int> PmergeMe::mergeDeque(std::deque<int> deque)
+{
+	std::deque<int> 	left, right;
+	int				size;
+
+	if (deque.size() == 1)
+		return (deque);
+	size = deque.size();
+	for (int i = 0; i < size; i++)
+	{
+		if (i < size / 2)
+			left.push_front(deque.front());
+		else
+			right.push_front(deque.front());
+		deque.pop_front();
+	}
+	left = mergeDeque(left);
+	right = mergeDeque(right);
+	return (mergeTwoDeque(left, right));
 }

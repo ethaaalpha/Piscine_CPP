@@ -27,7 +27,9 @@ public:
 	std::list<int>		mergeTwoLists(std::list<int> a, std::list<int> b);
 	std::list<int>		mergeList(std::list<int>);
 
-	// void 				handleDequeSort(void);
+	void				handleDequeSort(const char *item[], int len);
+	std::deque<int>		mergeTwoDeque(std::deque<int> a, std::deque<int> b);
+	std::deque<int>		mergeDeque(std::deque<int>);
 
 	class SyntaxException : public std::exception {
 		public:
