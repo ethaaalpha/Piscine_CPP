@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <ctime>
 #include <iomanip>
+#include <limits>
 
 class PmergeMe
 {
@@ -34,5 +35,10 @@ public:
 	class SyntaxException : public std::exception {
 		public:
 			virtual const char * what() const throw () { return ("invalid character found !");}
+	};
+
+	class OverFlowException : public std::exception {
+		public:
+			virtual const char * what() const throw () { return ("too high number must be an integer !");}
 	};
 };

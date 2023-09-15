@@ -9,8 +9,9 @@ PmergeMe::PmergeMe(const PmergeMe &parent)
 
 PmergeMe& PmergeMe::operator=(const PmergeMe &parent)
 {
-	(void) parent;
-	//do something here;
+	_deque = parent._deque;
+	_list = parent._list;
+
 	return (*this);
 }
 
@@ -37,7 +38,7 @@ void printDeque(std::deque<int> l)
 	}
 	std::cout << std::endl;
 }
-// Time to process a range of 5 elements with std::[..] : 0.00031 us
+
 void PmergeMe::doSorts(const char *items[], int len)
 {
 	std::clock_t startList, endList, startDeque, endDeque;
@@ -75,6 +76,8 @@ void PmergeMe::treatEntry(const char *item[], int len) const
 	{
 		if (std::string(item[i]).find_first_not_of("0123456789") != std::string::npos)
 			throw (SyntaxException());
+		if (std::strlen(item[i]) > 10 || std::atol(item[i]) > std::numeric_limits<int>::max())
+			throw (OverFlowException());
 		i++;
 	}
 }
