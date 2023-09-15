@@ -4,6 +4,9 @@
 #include <list>
 #include <exception>
 #include <cstdlib>
+#include <algorithm>
+#include <ctime>
+#include <iomanip>
 
 class PmergeMe
 {
@@ -20,10 +23,11 @@ public:
 	void treatEntry(const char *items[], int len) const;
 	void doSorts(const char *items[], int len);
 
-	void handleListSort(const char *item[], int len);
-	void mergeList(void);
+	void				handleListSort(const char *item[], int len);
+	std::list<int>		mergeTwoLists(std::list<int> a, std::list<int> b);
+	std::list<int>		mergeList(std::list<int>);
 
-	// void handleDequeSort(void);
+	// void 				handleDequeSort(void);
 
 	class SyntaxException : public std::exception {
 		public:
