@@ -1,20 +1,16 @@
 #include "RPN.hpp"
 
-RPN::RPN(void)
-{
-}
+RPN::RPN(void) {}
 
 RPN::RPN(const RPN& parent) { *this = parent; }
 
 RPN& RPN::operator=(const RPN& parent)
 {
-	(void) parent;
+	_stack = parent._stack;
 	return (*this);
 }
 
-RPN::~RPN(void)
-{
-}
+RPN::~RPN(void) {}
 
 void	RPN::doCalculation(std::string n_list)
 {
