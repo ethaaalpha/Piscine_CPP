@@ -1,16 +1,9 @@
 class PmergeMe
 {
 private:
-	/* data */
 public:
-	PmergeMe(/* args */);
-	~PmergeMe();
+	PmergeMe(void);
+	~PmergeMe(void);
+	PmergeMe& operator=(const PmergeMe &parent);
+	PmergeMe(const PmergeMe &parent);
 };
-
-PmergeMe::PmergeMe(void)
-{
-}
-
-PmergeMe::~PmergeMe(void)
-{
-}
