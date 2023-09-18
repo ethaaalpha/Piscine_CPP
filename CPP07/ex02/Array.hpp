@@ -42,6 +42,13 @@ public:
 			return (_items[n]);
 	}
 
+	const T operator[](unsigned int n) const{
+		if (n >= _size)
+			throw (Array::OutOfArrayException());
+		else
+			return (_items[n]);
+	}
+
 	unsigned int size(void) const {
 		return (_size);
 	}
