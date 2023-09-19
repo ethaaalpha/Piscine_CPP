@@ -5,8 +5,6 @@ CFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 NAME 		= ex02
 #---------------------------------------------------#
-OBJ_DIR 	= obj/
-
 SRCS		= \
 main.cpp\
 ClapTrap.cpp\

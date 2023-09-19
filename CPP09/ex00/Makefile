@@ -5,8 +5,6 @@ CFLAGS 		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 NAME 		= btc
 #---------------------------------------------------#
-OBJ_DIR 	= obj/
-
 SRCS		= \
 main.cpp\
 BitcoinExchange.cpp

@@ -5,8 +5,6 @@ CFLAGS 		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 NAME 		= RPN
 #---------------------------------------------------#
-OBJ_DIR 	= obj/
-
 SRCS		= \
 main.cpp\
 RPN.cpp

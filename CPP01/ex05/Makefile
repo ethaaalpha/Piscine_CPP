@@ -5,8 +5,6 @@ CFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 NAME 		= ex05
 #---------------------------------------------------#
-OBJ_DIR 	= obj/
-
 SRCS		= \
 Harl.cpp\
 main.cpp

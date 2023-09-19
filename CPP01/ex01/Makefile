@@ -5,8 +5,6 @@ CFLAGS 		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 NAME 		= ex01
 #---------------------------------------------------#
-OBJ_DIR 	= obj/
-
 SRCS		= \
 Zombie.cpp\
 zombieHorde.cpp\

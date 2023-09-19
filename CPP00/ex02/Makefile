@@ -5,8 +5,6 @@ CFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 NAME 		= ex01
 #---------------------------------------------------#
-OBJ_DIR 	= obj/
-
 SRCS		= \
 tests.cpp\
 Account.cpp
@@ -17,7 +15,6 @@ OBJS		= $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 HEADERS		= \
 Account.hpp
-
 #---------------------------------------------------#
 all:
 	$(MAKE) $(NAME)
