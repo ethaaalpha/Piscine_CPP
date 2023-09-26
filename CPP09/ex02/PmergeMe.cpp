@@ -125,7 +125,7 @@ std::list<int> PmergeMe::mergeList(std::list<int> list)
 	std::list<int> 	left, right;
 	int				size;
 
-	if (list.size() == 1)
+	if (list.size() < 50)
 		return (list);
 	size = list.size();
 	for (int i = 0; i < size; i++)
@@ -184,7 +184,7 @@ std::deque<int> PmergeMe::mergeDeque(std::deque<int> deque)
 	std::deque<int> 	left, right;
 	int				size;
 
-	if (deque.size() == 1)
+	if (deque.size() < 50)
 		return (deque);
 	size = deque.size();
 	for (int i = 0; i < size; i++)
