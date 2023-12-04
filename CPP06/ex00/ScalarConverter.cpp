@@ -79,6 +79,13 @@ void ScalarConverter::getFloat(double value, std::string org)
 		std::cout << org << std::endl;
 		return ;
 	}
+	if (org == "-inf" || org == "+inf"){
+		if (org[0] == '-')
+			std::cout << "-inff" << std::endl;
+		else
+			std::cout << "+inff" << std::endl;
+		return;
+	}
 	if ((org.at(i) == '-' || org.at(i) == '+') && org.length() > 1)
 		i++;
 	if (org.at(i) != '0' && value == 0)
@@ -112,6 +119,13 @@ void ScalarConverter::getDouble(double value, std::string org)
 		std::cout << org << std::endl;
 		return ;
 	}
+	if (org == "-inff" || org == "+inff"){
+		if (org[0] == '-')
+			std::cout << "-inf" << std::endl;
+		else
+			std::cout << "+inf" << std::endl;
+		return;
+	}
 	if ((org.at(i) == '-' || org.at(i) == '+') && org.length() > 1)
 		i++;
 	if (org.at(i) != '0' && value == 0)
@@ -125,9 +139,9 @@ void ScalarConverter::getDouble(double value, std::string org)
 		return ;
 	}
 	if (value < std::numeric_limits<double>::min())
-		std::cout << "-inff" << std::endl;
+		std::cout << "-inf" << std::endl;
 	else if (value > std::numeric_limits<double>::max())
-		std::cout << "+inff" << std::endl;
+		std::cout << "+inf" << std::endl;
 	else
 	{
 		std::cout << std::setprecision(precisionShow(org.c_str()));
