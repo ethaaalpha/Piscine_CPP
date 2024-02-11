@@ -33,6 +33,9 @@ public:
 	std::deque<int>		mergeTwoDeque(std::deque<int> a, std::deque<int> b);
 	std::deque<int>		mergeDeque(std::deque<int>);
 
+	void				handleNewSort(const char *item[], int len);
+
+
 	class SyntaxException : public std::exception {
 		public:
 			virtual const char * what() const throw () { return ("invalid character found !");}
